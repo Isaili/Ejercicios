@@ -1,0 +1,17 @@
+# ejercicio 1 inconsistencia de datos 
+cuantas personas hay e determinado momneto
+
+tendra puertas en cada apuerta debe saber cuantas entran y cuantas sales y no debe de ser lineal el tiempo debe de ser aleatorio
+
+usar: ramdon.uniform para las diferentes acras de tiempo para que ocurra el evento
+usar: ramdon.choice para que ocurra el evento
+
+
+variable compartinda que lleva el conteo de cuantas personas esta en la sala y agregara un background que diga cuantas peronas
+marcar entrada y salidas con el background
+
+# ejercicio 2: gato automatico
+
+dos jugadores
+cada jugardor es un hilo (treads)
+y termina el programa cuando un hilo gana
