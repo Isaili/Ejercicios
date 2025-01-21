@@ -15,3 +15,7 @@ marcar entrada y salidas con el background
 dos jugadores
 cada jugardor es un hilo (treads)
 y termina el programa cuando un hilo gana
+////
+
+
+
