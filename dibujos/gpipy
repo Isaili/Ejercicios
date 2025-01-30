@@ -1,0 +1,11 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Crear una matriz de colores aleatorios
+data = np.random.rand(100, 100)
+
+
+plt.imshow(data, cmap='viridis')  
+plt.colorbar()  
+plt.title("Arte Abstracto Aleatorio")
+plt.show()
