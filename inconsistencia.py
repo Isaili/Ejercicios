@@ -29,15 +29,25 @@ def simular_evento(puerta):
     time.sleep(random.uniform(1, 5))
 
 def simular_puerta(puerta):
-    while True:
+    simulando = True
+    start_time = time.time()
+    while simulando:
         simular_evento(puerta)
+        if time.time() - start_time >= 25:
+            simulando = False
 
+
+def cerrar_aplicacion():
+    root.destroy()
+    
 puertas = 5
 hilos = []
 for i in range(puertas):
     hilo = threading.Thread(target=simular_puerta, args=(i+1,))
     hilos.append(hilo)
     hilo.start()
+    
+threading.Timer(25, cerrar_aplicacion).start()
 
 actualizar_fondo()
 root.mainloop()

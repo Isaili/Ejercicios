@@ -12,7 +12,7 @@ class TuringMachine:
 
     def run(self, input_string):
         for symbol in input_string:
-            if symbol not in ['0', '1']:  # Si hay un carácter no válido
+            if symbol not in ['0', '1']:  
                 return 'q_reject'
             self.transition(symbol)
         return 'q_accept' if self.state == 'q0' else 'q_reject'
