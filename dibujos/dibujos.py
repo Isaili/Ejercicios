@@ -6,7 +6,7 @@ pygame.init()
 screen = pygame.display.set_mode((500, 500))
 pygame.display.set_caption("Dibujo en Pygame")
 
-# Colores
+
 WHITE = (255, 255, 255)
 BLUE = (0, 0, 255)
 
