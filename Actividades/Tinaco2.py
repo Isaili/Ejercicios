@@ -3,7 +3,7 @@ import time
 from tkinter import Tk, Canvas, Label, Frame, Button, ttk, HORIZONTAL
 
 # Variables globales
-nivel_agua = 100  # Nivel inicial del tinaco (en %)
+nivel_agua = 100 
 lock = threading.Lock()
 
 # Semáforos
@@ -21,7 +21,7 @@ def control_bomba():
     while True:
         with lock:
             if nivel_agua < 100 and bomba_activa:
-                if nivel_agua >= 100:  # Si está lleno, desactivar bomba
+                if nivel_agua >= 100:  
                     bomba_activa = False
                 else:
                     semaforo_bomba.acquire()
@@ -34,21 +34,21 @@ def control_tomas(toma, porcentaje_corte):
     global nivel_agua, estado_jardin, estado_lavadero
     while True:
         with lock:
-            # Cerrar todas las tomas si el nivel es muy bajo (5%)
+           
             if nivel_agua <= 5:
                 estado_jardin = False
                 estado_lavadero = False
             
             # Control del jardín
             elif toma == "jardín":
-                if nivel_agua <= 50:  # Cerrar jardín si nivel <= 50%
+                if nivel_agua <= 50:  
                     estado_jardin = False
                 elif estado_jardin:
                     nivel_agua = max(0, nivel_agua - 5)
             
             # Control del lavadero
             elif toma == "lavadero":
-                if nivel_agua <= 30:  # Cerrar lavadero si nivel <= 30%
+                if nivel_agua <= 30: 
                     estado_lavadero = False
                 elif estado_lavadero:
                     nivel_agua = max(0, nivel_agua - 5)
@@ -207,20 +207,20 @@ class InterfazTinaco:
         
         # Dibujar el agua
         if nivel_agua > 0:
-            color_agua = "#3498db"  # Azul normal
+            color_agua = "#3498db" 
             if nivel_agua <= 30:
-                color_agua = "#e74c3c"  # Rojo para nivel crítico
+                color_agua = "#e74c3c"  
             elif nivel_agua <= 50:
-                color_agua = "#f1c40f"  # Amarillo para nivel bajo
+                color_agua = "#f1c40f" 
             self.canvas.create_rectangle(50, y_agua, 150, 300, fill=color_agua)
             
-        # Añadir marcas de nivel
+       
         for i in range(0, 101, 20):
             y = 300 - (250 * (i / 100))
             self.canvas.create_line(45, y, 50, y)
             self.canvas.create_text(35, y, text=f"{i}%")
         
-        # Añadir marcas especiales
+       
         self.canvas.create_line(40, 300 - (250 * 0.5), 50, 300 - (250 * 0.5), fill="red", width=2)
         self.canvas.create_text(30, 300 - (250 * 0.5), text="50%", fill="red")
         
